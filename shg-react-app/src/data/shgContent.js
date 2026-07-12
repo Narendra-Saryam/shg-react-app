@@ -1,0 +1,105 @@
+import { CalendarCheck, HandCoins, Users, Wallet } from "lucide-react";
+
+export const translations = {
+  en: {
+    title: "Shitala Mata Self Help Group",
+    subtitle: "Member & Finance Tracker",
+    members: "Members",
+    savings: "Savings",
+    loans: "Loans",
+    meetings: "Meetings",
+    addMember: "Add Member",
+    name: "Name",
+    phone: "Phone",
+    joined: "Joined",
+    totalSaved: "Total Saved",
+    addSaving: "Add Monthly Saving",
+    amount: "Amount (₹)",
+    date: "Date",
+    loanFor: "Member",
+    loanAmount: "Loan Amount (₹)",
+    loanDate: "Date Given",
+    interest: "Interest %",
+    status: "Status",
+    outstanding: "Outstanding",
+    paid: "Paid",
+    giveLoan: "Give Loan",
+    repay: "Record Repayment",
+    repayAmt: "Repayment (₹)",
+    meetingDate: "Meeting Date",
+    attendance: "Attendance",
+    present: "Present",
+    absent: "Absent",
+    addMeeting: "Add Meeting",
+    noData: "No records yet.",
+    delete: "Delete",
+    groupSavings: "Total Group Savings",
+    activeLoans: "Active Loan Amount",
+    selectMember: "Select member",
+    record: "Record",
+    balance: "Balance",
+    overview: "Overview",
+  },
+  mr: {
+    title: "शितला माता बचत गट",
+    subtitle: "सदस्य व आर्थिक नोंदी",
+    members: "सदस्य",
+    savings: "बचत",
+    loans: "कर्ज",
+    meetings: "सभा",
+    addMember: "सदस्य जोडा",
+    name: "नाव",
+    phone: "मोबाईल नं.",
+    joined: "सामील झाल्याची तारीख",
+    totalSaved: "एकूण बचत",
+    addSaving: "मासिक बचत नोंदवा",
+    amount: "रक्कम (₹)",
+    date: "तारीख",
+    loanFor: "सदस्य",
+    loanAmount: "कर्ज रक्कम (₹)",
+    loanDate: "दिल्याची तारीख",
+    interest: "व्याज %",
+    status: "स्थिती",
+    outstanding: "थकीत",
+    paid: "फेड झाले",
+    giveLoan: "कर्ज द्या",
+    repay: "परतफेड नोंदवा",
+    repayAmt: "परतफेड रक्कम (₹)",
+    meetingDate: "सभेची तारीख",
+    attendance: "उपस्थिती",
+    present: "उपस्थित",
+    absent: "अनुपस्थित",
+    addMeeting: "सभा नोंदवा",
+    noData: "अद्याप नोंद नाही.",
+    delete: "काढा",
+    groupSavings: "एकूण गट बचत",
+    activeLoans: "थकीत कर्ज रक्कम",
+    selectMember: "सदस्य निवडा",
+    record: "नोंद करा",
+    balance: "शिल्लक",
+    overview: "आढावा",
+  },
+};
+
+export const tabs = [
+  { key: "members", icon: Users },
+  { key: "savings", icon: Wallet },
+  { key: "loans", icon: HandCoins },
+  { key: "meetings", icon: CalendarCheck },
+];
+
+export const initialMembers = [
+  { id: 1, name: "Sunita Patil", phone: "9876543210", joined: "2024-01-15" },
+  { id: 2, name: "Anjali More", phone: "9823456710", joined: "2024-01-15" },
+];
+
+export const initialSavings = [
+  { id: 1, memberId: 1, amount: 500, date: "2025-01-05" },
+  { id: 2, memberId: 2, amount: 500, date: "2025-01-05" },
+];
+
+export const initialLoans = [
+  { id: 1, memberId: 1, amount: 5000, date: "2025-02-01", interest: 2, repaid: 1000 },
+];
+
+export const initialMeetings = [{ id: 1, date: "2025-01-05", present: [1, 2] }];
