@@ -5,6 +5,7 @@ import {
   initialMeetings,
   initialSavings,
 } from "../data/shgContent";
+import { exportTrackerWorkbook, importTrackerWorkbook } from "../utils/excel";
 
 const STORAGE_KEY = "shg-tracker-state";
 
@@ -175,6 +176,23 @@ export function useShgTracker() {
     }));
   };
 
+  const exportExcel = () => {
+    exportTrackerWorkbook(state);
+  };
+
+  const importExcel = async (file) => {
+    if (!file) return;
+
+    const importedState = await importTrackerWorkbook(file);
+
+    setState((current) => ({
+      ...current,
+      ...importedState,
+      lang: current.lang,
+      tab: current.tab,
+    }));
+  };
+
   return {
     state,
     setState,
@@ -198,5 +216,7 @@ export function useShgTracker() {
     addMeeting,
     toggleAttendance,
     removeItem,
+    exportExcel,
+    importExcel,
   };
 }

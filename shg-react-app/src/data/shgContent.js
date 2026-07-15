@@ -39,6 +39,8 @@ export const translations = {
     record: "Record",
     balance: "Balance",
     overview: "Overview",
+    exportExcel: "Export Excel",
+    importExcel: "Import Excel",
   },
   mr: {
     title: "शितला माता बचत गट",
@@ -78,6 +80,8 @@ export const translations = {
     record: "नोंद करा",
     balance: "शिल्लक",
     overview: "आढावा",
+    exportExcel: "एक्सेल निर्यात",
+    importExcel: "एक्सेल आयात",
   },
 };
 

@@ -1,4 +1,5 @@
-import { Languages, IndianRupee } from "lucide-react";
+import { useRef } from "react";
+import { Download, Languages, Upload, IndianRupee } from "lucide-react";
 import { BottomNav } from "./components/BottomNav";
 import { StatCard } from "./components/StatCard";
 import { LoansSection } from "./components/sections/LoansSection";
@@ -11,8 +12,23 @@ import { useShgTracker } from "./hooks/useShgTracker";
 
 export default function App() {
   const tracker = useShgTracker();
-  const { state, summary, setLanguage, setTab } = tracker;
+  const { state, summary, setLanguage, setTab, exportExcel, importExcel } = tracker;
+  const fileInputRef = useRef(null);
   const t = translations[state.lang];
+
+  const handleImportClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files?.[0];
+
+    try {
+      await importExcel(file);
+    } finally {
+      event.target.value = "";
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50 pb-24 font-sans text-stone-900">
@@ -37,6 +53,21 @@ export default function App() {
         <div className="relative z-10 mt-5 grid grid-cols-2 gap-3">
           <StatCard label={t.groupSavings} value={summary.groupTotalSavings} />
           <StatCard label={t.activeLoans} value={summary.activeLoanTotal} />
+        </div>
+
+        <div className="relative z-10 mt-4 flex gap-2">
+          <Button onClick={exportExcel} className="flex-1 bg-white/15 text-white hover:bg-white/25">
+            <Download size={16} />
+            {t.exportExcel}
+          </Button>
+          <Button
+            onClick={handleImportClick}
+            className="flex-1 border border-white/15 bg-white/15 text-white hover:bg-white/25"
+          >
+            <Upload size={16} />
+            {t.importExcel}
+          </Button>
+          <input ref={fileInputRef} type="file" accept=".xlsx,.xls" className="hidden" onChange={handleFileChange} />
         </div>
       </header>
 
